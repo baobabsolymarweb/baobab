@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carpintería Baobabsolymar | Richard Amaral</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="marquee-container">
+        <div class="marquee-text">Bienvenidos a Carpintería Baobabsolymar - Artesanía en madera de Richard Amaral - Calidad y diseño a medida en Solymar</div>
+    </div>
+
+    <div class="wrapper">
+       <nav class="sidebar">
+    <!-- Quitamos el h2 y usamos solo el div contenedor -->
+    <div class="logo-container">
+        <img src="Images/logo.jpg" alt="Logo" class="logo-img">
+        <p class="nombre-carpinteria">Baobabsolymar</p>
+    </div>
+    
+    <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="montes.html">Montessori</a></li>
+        <li><a href="productos.html">Otros productos</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+    </ul>
+    <div onclick="abrirCarrito()">🛒 Carrito (<span id="cont">0</span>)</div>
+</nav>
+
+<!-- Botón flotante siempre visible -->
+<a href="https://wa.me/59897422212" class="whatsapp-float" target="_blank">
+    <span>💬</span> Consultas
+</a>
+
+        <main class="content">
+            <h1>Bienvenidos a Carpintería Baobabsolymar</h1>
+            <p>Somos una carpintería artesanal ubicada en Solymar, Canelones. Nuestro maestro carpintero, <strong>Richard Amaral</strong>, dedica su vida a la creación de muebles a medida, combinando técnica, prolijidad y una profunda pasión por la nobleza de la madera.</p>
+            <p>En nuestro taller, cada pieza es tratada como una obra de arte. Nos especializamos en mobiliario funcional, incluyendo nuestra línea exclusiva de <strong>muebles Montessori</strong>, diseñados específicamente para fomentar la autonomía, el aprendizaje y la seguridad de los niños en su entorno cotidiano.</p>
+            
+            <section class="carrusel">
+                <div class="track">
+                    <img src="Images/biblioteca.png"><img src="Images/cama1.png"><img src="Images/lampara1.png"><img src="Images/lampara2.png"><img src="Images/macetero1.png"><img src="Images/macetero2.png"><img src="Images/pata.png"><img src="Images/torre1.png"><img src="Images/torresMontessori.png">
+                    <img src="Images/biblioteca.png"><img src="Images/cama1.png"><img src="Images/lampara1.png"><img src="Images/lampara2.png"><img src="Images/macetero1.png"><img src="Images/macetero2.png"><img src="Images/pata.png"><img src="Images/torre1.png"><img src="Images/torresMontessori.png">
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <footer>
+        <p>2026 | Carpintería Baobabsolymar | Solymar, Uruguay</p>
+    </footer>
+
+    <div id="carrito-modal">
+        <button onclick="cerrarCarrito()">Cerrar X</button>
+        <h2>Tu Pedido</h2>
+        <div id="lista"></div>
+        <button onclick="enviarW()" style="background:#5d4037; color:white; padding:10px; margin-top:20px;">Enviar pedido por WhatsApp</button>
+    </div>
+
+    <script>
+    function abrirCarrito() {
+        let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+        let lista = document.getElementById('lista');
+        if (cart.length > 0) {
+            lista.innerHTML = cart.map((item, index) => `
+                <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid #ccc; padding:10px 0;">
+                    <span>✅ ${item}</span>
+                    <button onclick="eliminar(${index})" style="background:#d32f2f; color:white; border:none; padding:5px 10px; border-radius:3px; cursor:pointer;">Eliminar</button>
+                </div>
+            `).join('');
+        } else {
+            lista.innerHTML = '<p>El carrito está vacío.</p>';
+        }
+        document.getElementById('carrito-modal').style.display = 'block';
+    }
+
+    function cerrarCarrito() { document.getElementById('carrito-modal').style.display = 'none'; }
+
+    function eliminar(index) {
+        let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+        cart.splice(index, 1);
+        localStorage.setItem('cart', JSON.stringify(cart));
+        actualizarUI();
+        abrirCarrito();
+    }
+
+    function actualizarUI() { 
+        document.getElementById('cont').innerText = JSON.parse(localStorage.getItem('cart') || '[]').length; 
+    }
+
+    function enviarW() { 
+        let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+        if(cart.length === 0) { alert("El carrito está vacío"); return; }
+        window.open("https://wa.me/59897422212?text=" + encodeURIComponent("Hola Richard, quiero comprar: " + cart.join(', '))); 
+    }
+
+    window.onload = actualizarUI;
+</script>
+</body>
+</html>
