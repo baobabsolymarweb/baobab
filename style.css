@@ -1,18 +1,316 @@
-/* ESTRUCTURA BASE - SIN ERRORES */
-body { margin: 0; padding: 0; font-family: sans-serif; background-color: #f4e8d3; color: #3e2723; }
+/* ==========================
+   RESET Y CONFIGURACIÓN BASE
+========================== */
 
-/* MARQUESINA LENTA */
-.marquee-container { width: 100%; overflow: hidden; background: #3e2723; color: white; padding: 10px 0; }
-.marquee-text { display: inline-block; white-space: nowrap; animation: marquee 30s linear infinite; }
-@keyframes marquee { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-/* CARRUSEL Y LISTA */
-.track { display: flex; gap: 20px; }
-.product-card { background: #e8dcc8; padding: 15px; margin: 10px; border-radius: 10px; }
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
 
-/* FIX PARA CELULAR */
+body {
+    background-color: #f4e8d3;
+    font-family: Arial, sans-serif;
+    color: #3e2723;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ==========================
+   MARQUESINA
+========================== */
+
+.marquee-container {
+    background-color: #3e2723;
+    color: white;
+    overflow: hidden;
+    padding: 10px 0;
+    width: 100%;
+}
+
+.marquee-text {
+    display: inline-block;
+    white-space: nowrap;
+    font-size: 1.2rem;
+    animation: marquee 12s linear infinite;
+}
+
+@keyframes marquee {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+/* ==========================
+   ESTRUCTURA GENERAL
+========================== */
+
+.wrapper {
+    display: flex;
+    flex: 1;
+    width: 100%;
+}
+
+/* ==========================
+   SIDEBAR
+========================== */
+
+.sidebar {
+    width: 280px;
+    background-color: #5d4037;
+    color: #d7ccc8;
+    padding: 25px;
+    flex-shrink: 0;
+}
+
+.sidebar ul {
+    list-style: none;
+}
+
+.sidebar li {
+    margin: 20px 0;
+}
+
+.sidebar a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.sidebar a:hover {
+    color: #ffe0b2;
+}
+
+/* ==========================
+   LOGO
+========================== */
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.logo-img {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+}
+
+.nombre-carpinteria {
+    color: white;
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+
+/* ==========================
+   CONTENIDO
+========================== */
+
+.content {
+    flex: 1;
+    padding: 40px;
+    min-width: 0;
+}
+
+/* ==========================
+   CARRUSEL
+========================== */
+
+.carrusel {
+    width: 100%;
+    overflow: hidden;
+    background: #e8dcc8;
+    padding: 20px;
+    border-radius: 15px;
+    margin: 20px 0;
+}
+
+.track {
+    display: flex;
+    gap: 20px;
+    width: max-content;
+    animation: slide 20s linear infinite;
+}
+
+.track img {
+    width: 250px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+@keyframes slide {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+/* ==========================
+   TARJETAS PRODUCTO
+========================== */
+
+.product-card {
+    background: #e8dcc8;
+    border: 2px solid #8d6e63;
+    border-radius: 15px;
+    padding: 25px;
+    margin-bottom: 30px;
+
+    display: flex;
+    gap: 25px;
+    align-items: flex-start;
+}
+
+.product-card img {
+    width: 300px;
+    max-width: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.product-info {
+    flex: 1;
+}
+
+.product-info h3 {
+    margin-bottom: 15px;
+    font-size: 1.8rem;
+}
+
+.btn-add {
+    background-color: #5d4037;
+    color: white;
+    border: none;
+    padding: 14px 22px;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: 0.3s;
+}
+
+.btn-add:hover {
+    background-color: #3e2723;
+}
+
+/* ==========================
+   WHATSAPP
+========================== */
+
+.whatsapp-float {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+
+    background: #25d366;
+    color: white;
+
+    text-decoration: none;
+    font-weight: bold;
+
+    padding: 14px 18px;
+    border-radius: 50px;
+
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    z-index: 9999;
+    box-shadow: 0 4px 10px rgba(0,0,0,.25);
+}
+
+/* ==========================
+   RESPONSIVE TABLET
+========================== */
+
+@media (max-width: 992px) {
+
+    .wrapper {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+    }
+
+    .content {
+        padding: 25px;
+    }
+
+    .product-card {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .product-card img {
+        width: 100%;
+        max-width: 400px;
+    }
+}
+
+/* ==========================
+   RESPONSIVE MÓVIL
+========================== */
+
 @media (max-width: 600px) {
-    .product-card { display: flex; flex-direction: column; }
-    .product-card img { width: 100%; }
-    #carrito-modal { position: fixed; top: 0; right: 0; width: 100%; height: 100%; }
+
+    body {
+        font-size: 16px;
+    }
+
+    .content {
+        padding: 15px;
+    }
+
+    .sidebar {
+        padding: 15px;
+    }
+
+    .sidebar a {
+        font-size: 1rem;
+    }
+
+    .nombre-carpinteria {
+        font-size: 1.2rem;
+    }
+
+    .marquee-text {
+        font-size: 1rem;
+    }
+
+    .track img {
+        width: 180px;
+        height: 130px;
+    }
+
+    .product-info h3 {
+        font-size: 1.4rem;
+    }
+
+    .btn-add {
+        width: 100%;
+    }
+
+    .whatsapp-float {
+        right: 10px;
+        bottom: 10px;
+        padding: 12px 15px;
+        font-size: 0.9rem;
+    }
 }
