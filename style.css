@@ -1,40 +1,40 @@
-/* --- LIMPIEZA Y ESTRUCTURA --- */
-* { max-width: 100% !important; box-sizing: border-box !important; }
-img { max-width: 100%; height: auto; }
-body { margin: 0; background-color: #f4e8d3; font-family: sans-serif; color: #3e2723; display: flex; flex-direction: column; min-height: 100vh; }
+/* --- CONFIGURACIÓN GLOBAL --- */
+* { box-sizing: border-box; }
+body { margin: 0; background-color: #f4e8d3; font-family: sans-serif; color: #3e2723; display: flex; flex-direction: column; min-height: 100vh; font-size: 16px; }
 
-/* --- MARQUESINA --- */
+/* --- MARQUESINA (Veloz y sin cortes) --- */
 .marquee-container { background-color: #3e2723; color: white; padding: 10px 0; overflow: hidden; width: 100%; }
-.marquee-text { display: inline-block; white-space: nowrap; animation: marquee 6s linear infinite; font-size: 1.5rem !important; }
+.marquee-text { display: inline-block; white-space: nowrap; animation: marquee 8s linear infinite; font-size: 1.2rem; }
 @keyframes marquee { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
 
-/* --- CARRUSEL --- */
-.carrusel { width: 100%; overflow: hidden; background: #e8dcc8; padding: 20px; border-radius: 15px; margin: 20px 0; }
-.track { display: flex; gap: 20px; animation: slide 8s linear infinite; width: max-content; }
-.track img { width: 200px; height: 150px; object-fit: cover; border-radius: 10px; }
-@keyframes slide { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-
-/* --- MENÚ Y CONTENIDO --- */
+/* --- ESTRUCTURA: Menú a la izquierda en PC, vertical en celular --- */
 .wrapper { display: flex; flex: 1; flex-wrap: wrap; }
 .sidebar { width: 280px; background-color: #5d4037; color: #d7ccc8; padding: 25px; flex-shrink: 0; }
 .sidebar a { color: #ffffff; text-decoration: none; font-size: 1.3rem; font-weight: bold; display: block; margin-bottom: 20px; }
-.content { padding: 40px; flex: 1; min-width: 300px; }
+.content { padding: 20px; flex: 1; min-width: 300px; }
 
-/* --- TARJETAS PRODUCTO --- */
-.product-card { background: #e8dcc8; border: 2px solid #8d6e63; border-radius: 15px; padding: 30px; margin-bottom: 40px; display: flex; gap: 30px; align-items: flex-start; }
-.product-card img { width: 350px; height: 350px; object-fit: cover; border-radius: 10px; flex-shrink: 0; }
-.product-info h3 { margin-top: 0; font-size: 1.8rem; }
+/* --- CARRUSEL --- */
+.carrusel { width: 100%; overflow: hidden; background: #e8dcc8; padding: 15px; border-radius: 15px; margin: 10px 0; }
+.track { display: flex; gap: 15px; animation: slide 12s linear infinite; width: max-content; }
+.track img { width: 200px; height: 150px; object-fit: cover; border-radius: 10px; }
+@keyframes slide { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
-/* --- CORRECCIONES MÓVILES (Fuerza lectura) --- */
+/* --- PRODUCTOS: Foto arriba, texto abajo --- */
+.product-card { background: #e8dcc8; border: 2px solid #8d6e63; border-radius: 15px; padding: 20px; margin-bottom: 30px; display: flex; flex-direction: column; align-items: center; text-align: center; }
+.product-card img { width: 100%; max-width: 300px; height: auto; border-radius: 10px; margin-bottom: 15px; }
+.btn-add { background: #5d4037; color: white; border: none; padding: 12px 20px; border-radius: 8px; cursor: pointer; font-size: 1rem; margin-top: 10px; }
+
+/* --- PIE DE PÁGINA (Footer) --- */
+footer { background: #3e2723; color: white; text-align: center; padding: 20px; margin-top: auto; width: 100%; }
+
+/* --- RESPONSIVIDAD MÓVIL --- */
 @media (max-width: 600px) {
     .wrapper { flex-direction: column; }
-    .sidebar { width: 100% !important; padding: 20px !important; }
-    .product-card { flex-direction: column; }
-    .product-card img { width: 100%; }
-    
-    /* Fuerza tamaño de letra para que no sea minúsculo */
-    body, p, a, div, h1, h2, h3, .content { font-size: 18px !important; line-height: 1.5 !important; }
+    .sidebar { width: 100%; padding: 15px; }
+    .content { padding: 15px; }
+    body, .sidebar a, .product-info h3, p { font-size: 18px !important; line-height: 1.4 !important; }
 }
 
-/* --- PIE DE PÁGINA --- */
-footer { background: #3e2723; color: white; text-align: center; padding: 20px; margin-top: auto; }
+/* --- ELEMENTOS FLOTANTES --- */
+.whatsapp-float { position: fixed; bottom: 20px; right: 20px; background-color: #25d366; color: white; padding: 12px 18px; border-radius: 50px; z-index: 1000; font-weight: bold; text-decoration: none; }
+#carrito-modal { display: none; position: fixed; top: 0; right: 0; width: 100%; max-width: 400px; height: 100%; background: #fdf5e6; padding: 20px; z-index: 9999; box-shadow: -2px 0 10px rgba(0,0,0,0.2); }
