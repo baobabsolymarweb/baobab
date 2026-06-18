@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Contacto - Baobabsolymar</title>
+    <style>
+        body { margin: 0; background-color: #f4e8d3; font-family: sans-serif; }
+        .contenedor-principal { display: flex; }
+        .sidebar { width: 280px; min-height: 100vh; background-color: #5d4037; color: #d7ccc8; padding: 20px; }
+        .contenido { padding: 40px; color: #3e2723; flex-grow: 1; }
+        .header-logo { display: flex; align-items: center; gap: 10px; margin-bottom: 30px; border-bottom: 2px solid #8d6e63; padding-bottom: 10px; }
+        h2 { color: #ffffff; margin: 0; font-size: 1.4rem; }
+        ul { list-style: none; padding: 0; }
+        li { margin: 18px 0; font-size: 1.1rem; cursor: pointer; color: white; }
+        
+        .card-contacto { background: #e8dcc8; padding: 30px; border-radius: 15px; display: inline-block; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+        .datos { font-size: 1.2rem; line-height: 2; }
+        .social { font-weight: bold; color: #5d4037; text-decoration: none; }
+    </style>
+</head>
+<body>
+
+    <div class="contenedor-principal">
+        <div class="sidebar">
+            <div class="header-logo">
+                <img src="Images/logo.jpg" alt="Logo" style="width: 50px; height: 50px; border-radius: 50%;">
+                <h2>Baobabsolymar</h2>
+            </div>
+           <style>
+    /* Estilo para que la "lucecita" vuelva */
+    ul { list-style: none; padding: 0; }
+    li { margin: 18px 0; font-size: 1.1rem; border-radius: 4px; transition: background 0.3s ease; }
+    li:hover { background-color: #795548; } /* Este es el efecto de luz */
+    li a { color: white; text-decoration: none; display: block; padding: 5px; }
+</style>
+
+<ul>
+    <li><a href="index.html">Inicio</a></li>
+    <li><a href="montessori.html">Montessori</a></li>
+    <li><a href="productos.html">Más productos</a></li>
+    <li><a href="contacto.html">Contacto</a></li>
+</ul>
+        </div>
+
+        <div class="contenido">
+            <h1>Contacto</h1>
+            <div class="card-contacto">
+                <p>¿Tienes una idea en madera? Ponte en contacto con Richard Amaral.</p>
+                <div class="datos">
+                    <p>📍 <strong>Ubicación:</strong> Solymar, Canelones.</p>
+                    <p>📱 <strong>WhatsApp:</strong> 097 422 212</p>
+                    <p>📸 <strong>Instagram:</strong> <a href="https://www.instagram.com/baobabsolymar/" target="_blank" class="social">@baobabsolymar</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

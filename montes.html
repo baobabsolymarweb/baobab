@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muebles Montessori | Baobabsolymar</title>
+   <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="wrapper">
+       <nav class="sidebar">
+    <!-- Quitamos el h2 y usamos solo el div contenedor -->
+    <div class="logo-container">
+        <img src="Images/logo.jpg" alt="Logo" class="logo-img">
+        <p class="nombre-carpinteria">Baobabsolymar</p>
+    </div>
+    
+    <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="montessori.html">Montessori</a></li>
+        <li><a href="productos.html">Otros productos</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+    </ul>
+    <div onclick="abrirCarrito()">🛒 Carrito (<span id="cont">0</span>)</div>
+</nav>
+
+<!-- Botón flotante siempre visible -->
+<a href="https://wa.me/59897422212" class="whatsapp-float" target="_blank">
+    <span>💬</span> Consultas
+</a>
+
+        <main class="content">
+            <h1>Muebles Montessori</h1>
+            <p>Piezas diseñadas para fomentar la autonomía, calidad artesanal y protección duradera.</p>
+
+            <article class="product-card">
+                <img src="Images/torremontessori.png" alt="Torre Montessori">
+                <div class="product-info">
+                    <h3>Torre de Aprendizaje</h3>
+                    <p><strong>Calidad y Prolijidad:</strong> Fabricada con madera seleccionada de alta densidad, lijada minuciosamente para un tacto suave y sin astillas. Acabado con un recubrimiento protector premium que repele manchas, agua y facilita la limpieza diaria.</p>
+                    <p><strong>Uso:</strong> Diseñada para que los niños alcancen de forma segura la altura de las mesadas. Fomenta su participación activa en la cocina, la autonomía y fortalece su seguridad al permitirles observar y colaborar en las tareas del hogar.</p>
+                    <button class="btn-add" onclick="agregar('Torre de Aprendizaje')">Agregar Torre al carrito 🛒</button>
+                </div>
+            </article>
+
+            <article class="product-card">
+                <img src="Images/biblioteca.png" alt="Biblioteca Montessori">
+                <div class="product-info">
+                    <h3>Biblioteca Montessori</h3>
+                    <p><strong>Calidad y Prolijidad:</strong> Estructura sólida en forma de triángulo que garantiza máxima estabilidad. La madera está tratada con nuestro sello protector, garantizando una superficie resistente al uso intensivo y libre de manchas.</p>
+                    <p><strong>Uso:</strong> Equipada con 4 niveles a la altura visual del niño. Funciona como una vitrina comercial que permite exponer los cuentos de frente, incentivando el hábito de la lectura y la elección independiente de sus libros favoritos.</p>
+                    <button class="btn-add" onclick="agregar('Biblioteca Montessori')">Agregar Biblioteca al carrito 🛒</button>
+                </div>
+            </article>
+        </main>
+    </div>
+
+    <div id="carrito-modal">
+        <button onclick="cerrarCarrito()" style="margin-bottom:20px; cursor:pointer;">Cerrar ✕</button>
+        <h2>Tu Pedido</h2>
+        <div id="lista"></div>
+        <button onclick="enviarW()" style="background:#25d366; color:white; border:none; padding:15px; width:100%; border-radius:5px; cursor:pointer; font-weight:bold;">Enviar pedido por WhatsApp 💬</button>
+    </div>
+
+    <script>
+        function agregar(nombre) {
+            let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+            cart.push(nombre);
+            localStorage.setItem('cart', JSON.stringify(cart));
+            actualizarUI();
+            abrirCarrito();
+        }
+
+        function eliminar(index) {
+            let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+            cart.splice(index, 1);
+            localStorage.setItem('cart', JSON.stringify(cart));
+            actualizarUI();
+            abrirCarrito();
+        }
+
+        function abrirCarrito() {
+            let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+            let lista = document.getElementById('lista');
+            if (cart.length > 0) {
+                lista.innerHTML = cart.map((item, index) => `
+                    <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid #ccc; padding:10px 0;">
+                        <span>✅ ${item}</span>
+                        <button onclick="eliminar(${index})" style="background:#d32f2f; color:white; border:none; padding:5px 10px; border-radius:3px; cursor:pointer;">Eliminar</button>
+                    </div>
+                `).join('');
+            } else {
+                lista.innerHTML = '<p>El carrito está vacío.</p>';
+            }
+            document.getElementById('carrito-modal').style.display = 'block';
+        }
+
+        function cerrarCarrito() { document.getElementById('carrito-modal').style.display = 'none'; }
+        
+        function actualizarUI() { 
+            document.getElementById('cont').innerText = JSON.parse(localStorage.getItem('cart') || '[]').length; 
+        }
+        
+        function enviarW() { 
+            let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+            if(cart.length === 0) { alert("Tu carrito está vacío"); return; }
+            window.open("https://wa.me/59897422212?text=" + encodeURIComponent("Hola Richard, quiero comprar: " + cart.join(', '))); 
+        }
+        
+        window.onload = actualizarUI;
+    </script>
+</body>
+</html>
