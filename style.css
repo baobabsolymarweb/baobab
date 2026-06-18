@@ -1,3 +1,7 @@
+img {
+    max-width: 100%;
+    height: auto;
+}
 /* Estructura básica y tipografía */
 * { box-sizing: border-box; }
 body { margin: 0; background-color: #f4e8d3; font-family: sans-serif; color: #3e2723; display: flex; flex-direction: column; min-height: 100vh; }
