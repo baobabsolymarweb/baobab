@@ -314,3 +314,116 @@ body {
         font-size: 0.9rem;
     }
 }
+#carrito-modal{
+    display:none;
+    position:fixed;
+    top:50%;
+    left:50%;
+    transform:translate(-50%, -50%);
+    width:90%;
+    max-width:500px;
+    background:white;
+    padding:20px;
+    border-radius:10px;
+    box-shadow:0 0 20px rgba(0,0,0,.3);
+    z-index:10000;
+    max-height:80vh;
+    overflow-y:auto;
+}
+/* ==========================
+CARRITO
+========================== */
+
+.carrito-btn{
+margin-top:30px;
+background:#3e2723;
+color:white;
+padding:12px;
+border-radius:8px;
+cursor:pointer;
+text-align:center;
+font-weight:bold;
+}
+
+.carrito-btn:hover
+
+#carrito-modal{
+display:none;
+position:fixed;
+top:50%;
+left:50%;
+transform:translate(-50%, -50%);
+width:90%;
+max-width:600px;
+background:white;
+padding:25px;
+border-radius:15px;
+box-shadow:0 0 25px rgba(0,0,0,.3);
+z-index:10000;
+max-height:80vh;
+overflow-y:auto;
+}
+
+#carrito-modal h2{
+margin-bottom:20px;
+}
+
+.item-carrito{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:12px 0;
+border-bottom:1px solid #ddd;
+}
+
+.item-carrito button{
+background:#c62828;
+color:white;
+border:none;
+padding:8px 12px;
+border-radius:5px;
+cursor:pointer;
+}
+
+.item-carrito button:hover
+
+.btn-whatsapp{
+width:100%;
+margin-top:20px;
+background:#25d366;
+color:white;
+border:none;
+padding:12px;
+border-radius:8px;
+cursor:pointer;
+font-size:1rem;
+font-weight:bold;
+}
+
+.btn-whatsapp:hover
+
+.btn-cerrar{
+float:right;
+background:#5d4037;
+color:white;
+border:none;
+padding:8px 12px;
+border-radius:5px;
+cursor:pointer;
+}
+
+footer{
+background:#3e2723;
+color:white;
+text-align:center;
+padding:15px;
+}
+
+.content h1{
+margin-bottom:20px;
+}
+
+.content p{
+margin-bottom:15px;
+line-height:1.7;
+}
