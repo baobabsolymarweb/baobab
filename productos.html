@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Otros Productos | Baobabsolymar</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="wrapper">
+        <!-- Menú Lateral con Logo -->
+       <nav class="sidebar">
+    <!-- Quitamos el h2 y usamos solo el div contenedor -->
+    <div class="logo-container">
+        <img src="Images/logo.jpg" alt="Logo" class="logo-img">
+        <p class="nombre-carpinteria">Baobabsolymar</p>
+    </div>
+    
+    <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="montes.html">Montessori</a></li>
+        <li><a href="productos.html">Otros productos</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+    </ul>
+    <div onclick="abrirCarrito()">🛒 Carrito (<span id="cont">0</span>)</div>
+</nav>
+        <!-- Botón flotante de WhatsApp -->
+        <a href="https://wa.me/59897422212" class="whatsapp-float" target="_blank">
+            <span class="whatsapp-logo">📱</span> Consultas
+        </a>
+
+        <!-- Contenido de Productos -->
+        <main class="content">
+            <h1>Catálogo de Productos Artesanales</h1>
+            <p>Trabajos a medida con la dedicación, prolijidad y excelencia que caracterizan el taller de Richard Amaral.</p>
+
+            <!-- Producto 1: Cama 1 -->
+            <article class="product-card">
+                <img src="Images/cama1.png" alt="Cama a medida">
+                <div class="product-info">
+                    <h3>Cama de Madera Maciza</h3>
+                    <p><strong>Calidad y Estructura:</strong> Construcción robusta en madera seleccionada de alta resistencia. Presenta un pulido artesanal impecable que suaviza cada arista y un sellado protector que asegura una durabilidad excepcional frente al uso diario.</p>
+                    <p><strong>Uso:</strong> Ideal para brindar firmeza, confort y un estilo cálido y natural a cualquier dormitorio.</p>
+                    <button class="btn-add" onclick="agregar('Cama de Madera Maciza')">Agregar al carrito 🛒</button>
+                </div>
+            </article>
+
+            <!-- Producto 2: Lámpara 1 -->
+            <article class="product-card">
+                <img src="Images/lampara1.png" alt="Lámpara de diseño 1">
+                <div class="product-info">
+                    <h3>Lámpara de Madera - Diseño Vanguardia</h3>
+                    <p><strong>Calidad y Estructura:</strong> Ensamble preciso y terminación fina con lacas transparentes que protegen la pieza sin ocultar las vetas naturales y únicas de la madera. Cableado y componentes eléctricos totalmente embutidos y seguros.</p>
+                    <p><strong>Uso:</strong> Proyecta una iluminación cálida y ambiental, ideal para mesas de luz, escritorios o esquinas de lectura.</p>
+                    <button class="btn-add" onclick="agregar('Lámpara Diseño Vanguardia')">Agregar al carrito 🛒</button>
+                </div>
+            </article>
+
+            <!-- Producto 3: Lámpara 2 -->
+            <article class="product-card">
+                <img src="Images/lampara2.png" alt="Lámpara de diseño 2">
+                <div class="product-info">
+                    <h3>Lámpara de Madera - Línea Rústica</h3>
+                    <p><strong>Calidad y Estructura:</strong> Pieza artística con un torneado y lijado minucioso. Su recubrimiento especial repele el polvo y la humedad, manteniendo el brillo y la elegancia original de la madera por años.</p>
+                    <p><strong>Uso:</strong> Un elemento decorativo central que realza la calidez de livings, salas de estar o recepciones.</p>
+                    <button class="btn-add" onclick="agregar('Lámpara Línea Rústica')">Agregar al carrito 🛒</button>
+                </div>
+            </article>
+
+            <!-- Producto 4: Macetero 1 -->
+            <article class="product-card">
+                <img src="Images/macetero1.png" alt="Macetero modelo 1">
+                <div class="product-info">
+                    <h3>Macetero de Madera - Diseño Alto</h3>
+                    <p><strong>Calidad y Estructura:</strong> Desarrollado con tratamientos específicos e impermeabilizantes premium para soportar la humedad interna de las plantas y proteger la madera contra salpicaduras de agua durante el riego.</p>
+                    <p><strong>Uso:</strong> Eleva tus plantas favoritas aportando una presencia sofisticada y ordenada en interiores o balcones semicubiertos.</p>
+                    <button class="btn-add" onclick="agregar('Macetero Diseño Alto')">Agregar al carrito 🛒</button>
+                </div>
+            </article>
+
+            <!-- Producto 5: Macetero 2 -->
+            <article class="product-card">
+                <img src="Images/macetero2.png" alt="Macetero modelo 2">
+                <div class="product-info">
+                    <h3>Macetero de Madera - Cubo Compacto</h3>
+                    <p><strong>Calidad y Estructura:</strong> Base nivelada de gran estabilidad con uniones reforzadas invisibles. Su acabado pulido destaca los tonos de la madera y la protege del desgaste ambiental.</p>
+                    <p><strong>Uso:</strong> Perfecto para armar arreglos florales o colocar plantas medianas sobre repisas, mesadas o ventanas.</p>
+                    <button class="btn-add" onclick="agregar('Macetero Cubo Compacto')">Agregar al carrito 🛒</button>
+                </div>
+            </article>
+
+            <!-- Producto 6: Pata -->
+           <article class="product-card">
+                <img src="Images/patapata.png" alt="Juguete Pata Pata">
+                <div class="product-info">
+                    <h3>Juguete Pata Pata</h3>
+                    <p><strong>Calidad y Seguridad:</strong> Fabricado artesanalmente en madera sólida con bordes perfectamente redondeados y lijados para evitar cualquier riesgo. Su estructura es sumamente estable, diseñada para resistir el uso diario y los movimientos bruscos propios del juego infantil.</p>
+                    <p><strong>Uso:</strong> Es el compañero ideal para los primeros pasos y el desarrollo de la motricidad. Ayuda a los niños a ganar confianza en su equilibrio, fortaleciendo sus piernas mientras se divierten recorriendo el hogar de forma segura y autónoma.</p>
+                    <button class="btn-add" onclick="agregar('Juguete Pata Pata')">Agregar al carrito 🛒</button>
+                </div>
+            </article>
+        </main>
+    </div>
+
+    <!-- Modal del carrito -->
+    <div id="carrito-modal">
+        <button onclick="cerrarCarrito()" style="margin-bottom:20px; cursor:pointer;">Cerrar ✕</button>
+        <h2>Tu Pedido</h2>
+        <div id="lista"></div>
+        <button onclick="enviarW()" style="background:#25d366; color:white; border:none; padding:15px; width:100%; border-radius:5px; cursor:pointer; font-weight:bold;">Enviar pedido por WhatsApp 💬</button>
+    </div>
+
+    <!-- Lógica del Carrito Compartido -->
+    <script>
+        function agregar(nombre) {
+            let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+            cart.push(nombre);
+            localStorage.setItem('cart', JSON.stringify(cart));
+            actualizarUI();
+            abrirCarrito();
+        }
+
+        function eliminar(index) {
+            let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+            cart.splice(index, 1);
+            localStorage.setItem('cart', JSON.stringify(cart));
+            actualizarUI();
+            abrirCarrito();
+        }
+
+        function abrirCarrito() {
+            let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+            let lista = document.getElementById('lista');
+            if (cart.length > 0) {
+                lista.innerHTML = cart.map((item, index) => `
+                    <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid #ccc; padding:10px 0;">
+                        <span>✅ ${item}</span>
+                        <button onclick="eliminar(${index})" style="background:#d32f2f; color:white; border:none; padding:5px 10px; border-radius:3px; cursor:pointer;">Eliminar</button>
+                    </div>
+                `).join('');
+            } else {
+                lista.innerHTML = '<p>El carrito está vacío.</p>';
+            }
+            document.getElementById('carrito-modal').style.display = 'block';
+        }
+
+        function cerrarCarrito() { document.getElementById('carrito-modal').style.display = 'none'; }
+        
+        function actualizarUI() { 
+            document.getElementById('cont').innerText = JSON.parse(localStorage.getItem('cart') || '[]').length; 
+        }
+        
+        function enviarW() { 
+            let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+            if(cart.length === 0) { alert("Tu carrito está vacío"); return; }
+            window.open("https://wa.me/59897422212?text=" + encodeURIComponent("Hola Richard, quiero comprar: " + cart.join(', '))); 
+        }
+        
+        window.onload = actualizarUI;
+    </script>
+</body>
+</html>
